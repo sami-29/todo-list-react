@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+* {
+  margin: 0px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+h1 {
+  position: absolute;
+  font-weight: 700;
+  left: 7.2vw;
+  top: 7vh;
+  letter-spacing: 0.7rem;
+  color: hsl(0, 0%, 98%);
+}
+
+.app-container.light {
+  background-color: hsl(0, 0%, 98%);
+  height: 100vh;
+  width: 100vw;
+}
+
+.app-container.dark {
+  background-color: hsl(235, 21%, 11%);
+  height: 100vh;
+  width: 100vw;
+}
+
+.background.dark {
+  background-image: url('./images/bg-mobile-dark.jpg');
+  height: 35vh;
+  background-repeat: no-repeat;
+}
+
+.background.light {
+  background-image: url('./images/bg-mobile-light.jpg');
+  height: 35vh;
+  background-repeat: no-repeat;
+}
+
+.background {
+  position: relative;
+}
+
+.background svg {
+  position: absolute;
+  top: 7vh;
+  right: 8vw;
+  cursor: pointer;
+}
+
+.todo-app-container {
+  position: absolute;
+  left: 5vw;
+  top: 15.5vh;
+}
+
+.create {
+  border-radius: 5px;
+  color: hsl(236, 9%, 61%) !important;
+  margin-bottom: 3vh;
+}
+
+.create input {
+  margin-top: 0.2vh;
+  width: 70%;
+  border: none;
+}
+
+.create input:focus {
+  outline: none;
+}
+
+.create.dark input {
+  background-color: hsl(235, 24%, 19%);
+  color: white;
+}
+
+.create.light input {
+  background-color: hsl(236, 33%, 92%);
+}
+
+.task {
+  width: 90vw;
+  height: 8vh;
+  max-height: inherit;
+  display: flex;
+  align-items: center;
+
+}
+
+.task.dark {
+  background-color: hsl(235, 24%, 19%);
+  color: hsl(234, 39%, 85%);
+  border-bottom: 1px solid hsl(233, 14%, 35%);
+}
+
+.task.light {
+  background-color: hsl(236, 33%, 92%);
+  color: hsl(235, 16%, 44%);
+  border-bottom: 1px solid hsl(233, 11%, 84%);
+}
+
+.circle {
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+
+.create-circle {
+  background: none;
+}
+
+
+
+
+.circle.dark {
+  border: 2px solid hsl(237, 14%, 26%);
+}
+
+.circle.light {
+  border: 2px solid hsl(233, 11%, 84%);
+}
+
+
+.todolist-container {
+  max-height: 54vh;
+  width: 90vw;
+  border-radius: 5px;
+}
+
+.info {
+  width: 90vw;
+  height: 8vh;
+  max-height: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.info .items-left {
+  margin-left: 6vw;
+}
+
+.info .clear {
+  margin-left: 26vw;
+  cursor: pointer;
+}
+
+.info.dark {
+  background-color: hsl(235, 24%, 19%);
+  color: hsl(235, 19%, 35%);
+}
+
+.info.light {
+  background-color: hsl(236, 33%, 92%);
+  color: hsl(236, 7%, 61%);
+}
