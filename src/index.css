@@ -3,6 +3,7 @@
 * {
   margin: 0px;
   font-family: 'Josefin Sans', sans-serif;
+  overflow: hidden;
 }
 
 p {
@@ -11,6 +12,7 @@ p {
 }
 
 h1 {
+  user-select: none;
   position: absolute;
   font-weight: 700;
   left: 7.2vw;
@@ -34,13 +36,13 @@ h1 {
 .background.dark {
   background-image: url('./images/bg-mobile-dark.jpg');
   height: 35vh;
-  background-repeat: no-repeat;
+  background-size: cover
 }
 
 .background.light {
   background-image: url('./images/bg-mobile-light.jpg');
   height: 35vh;
-  background-repeat: no-repeat;
+  background-size: cover
 }
 
 .background {
@@ -61,9 +63,10 @@ h1 {
 }
 
 .create {
-  border-radius: 5px;
+  border-radius: 8px;
   color: hsl(236, 9%, 61%) !important;
   margin-bottom: 3vh;
+  border-bottom: none !important;
 }
 
 .create input {
@@ -85,7 +88,8 @@ h1 {
   background-color: hsl(236, 33%, 92%);
 }
 
-.task {
+.task-template {
+  position: relative;
   width: 90vw;
   height: 8vh;
   max-height: inherit;
@@ -94,13 +98,13 @@ h1 {
 
 }
 
-.task.dark {
+.task-template.dark {
   background-color: hsl(235, 24%, 19%);
   color: hsl(234, 39%, 85%);
   border-bottom: 1px solid hsl(233, 14%, 35%);
 }
 
-.task.light {
+.task-template.light {
   background-color: hsl(236, 33%, 92%);
   color: hsl(235, 16%, 44%);
   border-bottom: 1px solid hsl(233, 11%, 84%);
@@ -118,12 +122,20 @@ h1 {
   background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
 
-
-.create-circle {
-  background: none;
+.task .circle:hover {
+  border-image: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%)) 0.5 !important;
 }
 
 
+.plain-circle {
+  background: none !important;
+}
+
+.cross {
+  position: absolute;
+  right: 5%;
+  cursor: pointer;
+}
 
 
 .circle.dark {
@@ -136,25 +148,41 @@ h1 {
 
 
 .todolist-container {
-  max-height: 54vh;
+  max-height: 80vh;
   width: 90vw;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .info {
+  position: relative;
   width: 90vw;
   height: 8vh;
-  max-height: inherit;
   display: flex;
   align-items: center;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  margin-bottom: 1vh;
+}
+
+.current {
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.current p {
+  margin-right: 5%;
+  margin-left: 5%;
+  cursor: pointer;
 }
 
 .info .items-left {
-  margin-left: 6vw;
+  position: absolute;
+  left: 5%;
 }
 
 .info .clear {
-  margin-left: 26vw;
+  position: absolute;
+  right: 5%;
   cursor: pointer;
 }
 
@@ -166,4 +194,37 @@ h1 {
 .info.light {
   background-color: hsl(236, 33%, 92%);
   color: hsl(236, 7%, 61%);
+}
+
+
+@media (min-width: 675px) {
+  .background.dark {
+    background-image: url('./images/bg-desktop-dark.jpg');
+    height: 35vh;
+    background-size: cover
+  }
+
+  .background.light {
+    background-image: url('./images/bg-desktop-light.jpg');
+    height: 35vh;
+    background-size: cover
+  }
+
+  .create input {
+    margin-top: 0.2vh;
+    width: 60vw;
+    border: none;
+  }
+
+  .info {
+    width: 60vw;
+  }
+
+  .task-template {
+    width: 60vw;
+  }
+
+  .todo-app-container {
+    left: 20vw;
+  }
 }

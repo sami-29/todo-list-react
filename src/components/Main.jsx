@@ -1,39 +1,35 @@
-import React, { useState} from "react";
+import React, {useState} from "react";
 import Toggle from "./Toggle";
 import Create from "./Create";
 import Todolist from "./Todolist";
 
 const Main = () => {
+    const [text, setText] = useState('')
     const [mode, setMode] = useState('dark')
-    const [tasks, setTasks] = useState([['running 5 miles','completed']])
+    const [tasks, setTasks] = useState([])
+    const [state, setState ] = useState(false)
+    const [current, setCurrent] = useState('all')
+
+    const [idCounter, setIdCounter] = useState(0)
+
+
+    const reRender = () => {
+        setState(state ? false : true)
+    }
 
     const switchMode = ()=> {
         setMode(mode === 'light'? 'dark' : 'light')
     }
     const createTask = (task) => {
-        const temp = tasks
-        temp.push(task)
-        setTasks(temp)
-        console.log(tasks)
+        setTasks(
+            [
+                ...tasks,
+                task
+            ]
+        )
+        setIdCounter(idCounter + 1)
     }
 
-    const clearCompleted = () => {
-        for (let i = 0; i < tasks.length;i++) {
-            if (tasks[i][1] === 'completed') {
-                const temp = tasks
-                console.log(temp[i])
-                temp.splice(i, 1)
-                console.log(temp)
-                setTasks(temp)
-            }
-        }
-    }
-
-    const completeTask = (i) => {
-        const temp = tasks
-        temp[i][1] = 'completed'
-        setTasks(temp)
-    }
     return (
         <div className={`app-container ${mode}`}>
             <div className={`background ${mode}`}>
@@ -47,14 +43,18 @@ const Main = () => {
             <div className="todo-app-container">
                 <Create
                     mode={mode}
-                    create = {createTask}
+                    create={createTask}
+                    value={text}
+                    setText={setText}
+                    id={idCounter}
                 />
                 <Todolist
                     mode = {mode}
                     tasks={tasks}
-                    nbrTasks={tasks.length}
-                    clear={clearCompleted}
-                    complete = {completeTask}
+                    setTasks={setTasks}
+                    setCurrent={setCurrent}
+                    current = {current}
+                    reRender = {reRender}
                 />
             </div>
 
@@ -63,3 +63,4 @@ const Main = () => {
 }
 
 export default Main;
+

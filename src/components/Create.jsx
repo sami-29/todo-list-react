@@ -1,26 +1,29 @@
 import React from "react";
 
 const Create = (props) => {
-    let value
     const handleChange = (event) => {
-        value = event.target.value
+         props.setText(event.target.value)
     }
 
     const onTrigger = (event) => {
-        if (value === ''){return}
-        props.create([event.target.input.value,'active'])
         event.preventDefault()
-        value = ''
+        if (props.value === '') { return }
+        props.create({
+            text: event.target.input.value,
+            completed: false,
+            id : props.id
+        })
+        props.setText('')
     }
     return (
-        <div className={`create task ${props.mode}`}>
-            <div className={`circle create-circle ${props.mode}`}></div>
+        <div className={`create task-template ${props.mode}`}>
+            <div className={`circle plain-circle ${props.mode}`}></div>
             <form autoComplete='off' onSubmit={onTrigger}>
                 <input
                 name="input"
                 placeholder="Create a Todo..."
                 type='text'
-                value = {value}
+                value = {props.value}
                 onChange= {handleChange}
                 />
             </form>
